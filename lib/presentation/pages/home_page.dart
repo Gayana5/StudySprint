@@ -32,10 +32,10 @@ class _HomePageState extends State<HomePage> {
           setState(() => _index = value);
         },
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.list_alt), label: 'Сессии'),
-          NavigationDestination(icon: Icon(Icons.timer), label: 'Таймер'),
-          NavigationDestination(icon: Icon(Icons.insights), label: 'Статистика'),
-          NavigationDestination(icon: Icon(Icons.flag), label: 'Цели'),
+          NavigationDestination(icon: Icon(Icons.list_alt, color: Color(0xFF00FFFF)), label: 'SESSIONS'),
+          NavigationDestination(icon: Icon(Icons.timer, color: Color(0xFFFF00FF)), label: 'TIMER'),
+          NavigationDestination(icon: Icon(Icons.insights, color: Color(0xFFFFFF00)), label: 'STATS'),
+          NavigationDestination(icon: Icon(Icons.flag, color: Color(0xFF00FF00)), label: 'GOALS'),
         ],
       ),
     );

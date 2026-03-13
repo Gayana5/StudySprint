@@ -3,119 +3,124 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static ThemeData light() {
-    const background = Color(0xFFF7F3EF);
-    const surface = Color(0xFFFFFFFF);
-    const primary = Color(0xFF7F9CF5);
-    const secondary = Color(0xFF8FD3C8);
-    const tertiary = Color(0xFFF6C1C7);
-    const ink = Color(0xFF2B2B2B);
+    // Retro arcade color scheme
+    const background = Color(0xFF0A0A0A); // Dark background like old arcade cabinets
+    const surface = Color(0xFF1A1A1A); // Dark surface
+    const primary = Color(0xFF00FFFF); // Cyan neon
+    const secondary = Color(0xFFFF00FF); // Magenta neon
+    const tertiary = Color(0xFFFFFF00); // Yellow neon
+    const ink = Color(0xFFFFFFFF); // White text
 
-    final colorScheme = const ColorScheme.light(
+    final colorScheme = const ColorScheme.dark(
       primary: primary,
-      onPrimary: Colors.white,
+      onPrimary: Color(0xFF000000),
       secondary: secondary,
-      onSecondary: Color(0xFF1F2A2A),
+      onSecondary: Color(0xFF000000),
       tertiary: tertiary,
-      onTertiary: Color(0xFF3B2B2B),
+      onTertiary: Color(0xFF000000),
       surface: surface,
       onSurface: ink,
-      error: Color(0xFFB66A6A),
-      onError: Colors.white,
+      error: Color(0xFFFF4444),
+      onError: Color(0xFF000000),
     );
 
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
       scaffoldBackgroundColor: background,
-      textTheme: GoogleFonts.interTextTheme(
-        const TextTheme(
-          bodyMedium: TextStyle(color: ink),
+      textTheme: GoogleFonts.pressStart2pTextTheme( // Pixelated retro font
+        TextTheme(
+          bodyMedium: TextStyle(color: ink, fontSize: 12),
+          headlineMedium: TextStyle(color: primary, fontSize: 16, fontWeight: FontWeight.bold),
+          displayMedium: TextStyle(color: secondary, fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
       appBarTheme: AppBarTheme(
-        backgroundColor: background,
+        backgroundColor: surface,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         centerTitle: false,
-        titleTextStyle: GoogleFonts.inter(
-          fontSize: 20,
+        titleTextStyle: GoogleFonts.pressStart2p(
+          fontSize: 14,
           fontWeight: FontWeight.w600,
-          color: ink,
+          color: primary,
         ),
       ),
       cardTheme: CardThemeData(
         color: surface,
-        elevation: 0,
+        elevation: 8,
+        shadowColor: primary.withOpacity(0.3),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: Color(0xFFF0E7E1), width: 1),
+          borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: primary, width: 2),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: const Color(0xFFFFFCFA),
+        fillColor: Color(0xFF2A2A2A),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: Color(0xFFF0E7E1), width: 1),
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: secondary, width: 2),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: Color(0xFFF0E7E1), width: 1),
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: secondary, width: 2),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: primary, width: 2),
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: tertiary, width: 3),
         ),
       ),
       chipTheme: ChipThemeData(
-        backgroundColor: const Color(0xFFF6F0EA),
+        backgroundColor: Color(0xFF2A2A2A),
         selectedColor: secondary,
-        labelStyle: const TextStyle(color: ink),
-        secondaryLabelStyle: const TextStyle(color: ink),
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        labelStyle: TextStyle(color: ink),
+        secondaryLabelStyle: TextStyle(color: ink),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
-          side: const BorderSide(color: Color(0xFFF0E7E1), width: 1),
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(color: tertiary, width: 2),
         ),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: primary,
-          foregroundColor: Colors.white,
-          textStyle: const TextStyle(fontWeight: FontWeight.w600),
+          foregroundColor: Color(0xFF000000),
+          textStyle: GoogleFonts.pressStart2p(fontSize: 10, fontWeight: FontWeight.w600),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
-          elevation: 0,
+          elevation: 8,
+          shadowColor: primary.withOpacity(0.5),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: ink,
-          side: const BorderSide(color: Color(0xFFF0E7E1), width: 1),
-          textStyle: const TextStyle(fontWeight: FontWeight.w600),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          side: BorderSide(color: secondary, width: 2),
+          textStyle: GoogleFonts.pressStart2p(fontSize: 10, fontWeight: FontWeight.w600),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: background,
-        indicatorColor: const Color(0xFFE8E4F5),
+        backgroundColor: surface,
+        indicatorColor: primary.withOpacity(0.2),
         labelTextStyle: WidgetStateProperty.all(
-          const TextStyle(fontWeight: FontWeight.w600),
+          GoogleFonts.pressStart2p(fontSize: 8, fontWeight: FontWeight.w600),
         ),
       ),
       progressIndicatorTheme:
           const ProgressIndicatorThemeData(color: secondary),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Color(0xFF7F9CF5),
-        foregroundColor: Colors.white,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: tertiary,
+        foregroundColor: Color(0xFF000000),
       ),
-      dialogTheme: const DialogThemeData(
+      dialogTheme: DialogThemeData(
         backgroundColor: surface,
         surfaceTintColor: Colors.transparent,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          side: BorderSide(color: Color(0xFFF0E7E1), width: 1),
+          borderRadius: BorderRadius.all(Radius.circular(16)),
+          side: BorderSide(color: primary, width: 2),
         ),
       ),
     );
