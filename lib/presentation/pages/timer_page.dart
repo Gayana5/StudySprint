@@ -27,7 +27,7 @@ class TimerPage extends StatelessWidget {
         final plan = state.plan;
         return Scaffold(
           appBar: AppBar(
-            title: const Text('TIMER'),
+            title: const Text('Таймер'),
           ),
           body: Padding(
             padding: const EdgeInsets.all(20),
@@ -116,13 +116,13 @@ class TimerPage extends StatelessWidget {
       context: context,
       builder: (dialogContext) {
         return AlertDialog(
-          title: const Text('How was the session?'),
+          title: const Text('Как прошла сессия?'),
           content: StatefulBuilder(
             builder: (context, setState) {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('Rate productivity: $rating'),
+                  Text('Оцените продуктивность: $rating'),
                   Slider(
                     value: rating.toDouble(),
                     min: 1,
@@ -140,11 +140,11 @@ class TimerPage extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(dialogContext),
-              child: const Text('Later'),
+              child: const Text('Позже'),
             ),
             FilledButton(
               onPressed: () => Navigator.pop(dialogContext, rating),
-              child: const Text('Save'),
+              child: const Text('Сохранить'),
             ),
           ],
         );
